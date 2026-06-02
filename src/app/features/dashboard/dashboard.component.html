@@ -1,0 +1,70 @@
+<app-page-header
+  title="Executive dashboard"
+  description="A polished operating view across revenue flow, customer health, workflow execution, and inventory pressure."
+  actionLabel="Share demo"
+  actionIcon="ios_share"
+/>
+
+<section class="metric-grid" aria-label="Business metrics">
+  @for (metric of data.metrics(); track metric.label) {
+    <app-metric-card [metric]="metric" />
+  }
+</section>
+
+<section class="dashboard-grid">
+  <article class="panel hero-panel">
+    <div class="panel-heading">
+      <div>
+        <p>Operating velocity</p>
+        <h2>Pipeline is moving 22% faster this week</h2>
+      </div>
+      <button mat-stroked-button type="button">View forecast</button>
+    </div>
+    <div class="velocity-chart" aria-label="Velocity chart">
+      @for (bar of [42, 58, 49, 72, 64, 82, 94]; track $index) {
+        <span [style.height.%]="bar"></span>
+      }
+    </div>
+  </article>
+
+  <article class="panel">
+    <div class="panel-heading compact">
+      <div>
+        <p>Live activity</p>
+        <h2>Command feed</h2>
+      </div>
+    </div>
+    <div class="activity-list">
+      @for (activity of data.activities(); track activity.title) {
+        <div class="activity-item">
+          <mat-icon>bolt</mat-icon>
+          <div>
+            <strong>{{ activity.title }}</strong>
+            <p>{{ activity.detail }}</p>
+            <span>{{ activity.timestamp }}</span>
+          </div>
+          <app-status-pill [status]="activity.status" />
+        </div>
+      }
+    </div>
+  </article>
+
+  <article class="panel operations-panel">
+    <div class="panel-heading compact">
+      <div>
+        <p>Critical workflows</p>
+        <h2>{{ data.activeOperations() }} active operations</h2>
+      </div>
+    </div>
+    @for (operation of data.operations(); track operation.id) {
+      <div class="operation-row">
+        <div>
+          <strong>{{ operation.workflow }}</strong>
+          <span>{{ operation.id }} · {{ operation.owner }}</span>
+        </div>
+        <mat-progress-bar mode="determinate" [value]="operation.completion" />
+        <app-status-pill [status]="operation.status" />
+      </div>
+    }
+  </article>
+</section>

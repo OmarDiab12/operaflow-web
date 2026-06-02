@@ -1,0 +1,132 @@
+.metric-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 18px;
+}
+
+.dashboard-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1.4fr 0.9fr;
+}
+
+.panel {
+  background: var(--of-surface);
+  border: 1px solid var(--of-border);
+  border-radius: 8px;
+  box-shadow: var(--of-shadow);
+  padding: 22px;
+}
+
+.hero-panel,
+.operations-panel {
+  grid-column: span 1;
+}
+
+.operations-panel {
+  grid-column: 1 / -1;
+}
+
+.panel-heading {
+  align-items: flex-start;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.panel-heading.compact {
+  margin-bottom: 18px;
+}
+
+.panel-heading p {
+  color: var(--of-accent);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: var(--of-text);
+  font-size: 1.35rem;
+  margin: 0;
+}
+
+.velocity-chart {
+  align-items: end;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(7, 1fr);
+  height: 280px;
+  margin-top: 28px;
+}
+
+.velocity-chart span {
+  background: linear-gradient(180deg, rgba(53, 215, 161, 0.95), rgba(101, 167, 255, 0.18));
+  border-radius: 8px 8px 0 0;
+  min-height: 44px;
+}
+
+.activity-list {
+  display: grid;
+  gap: 14px;
+}
+
+.activity-item {
+  align-items: flex-start;
+  border-bottom: 1px solid var(--of-border);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: auto 1fr auto;
+  padding-bottom: 14px;
+}
+
+.activity-item:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.activity-item mat-icon {
+  color: var(--of-accent);
+}
+
+.activity-item strong,
+.operation-row strong {
+  color: var(--of-text);
+  display: block;
+}
+
+.activity-item p,
+.activity-item span,
+.operation-row span {
+  color: var(--of-muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+  margin: 4px 0 0;
+}
+
+.operation-row {
+  align-items: center;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr minmax(120px, 280px) auto;
+  padding: 14px 0;
+}
+
+@media (max-width: 1120px) {
+  .metric-grid,
+  .dashboard-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .metric-grid,
+  .dashboard-grid,
+  .operation-row,
+  .activity-item {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,30 @@
+<app-page-header
+  title="Operations"
+  description="Track mission-critical workflows, owners, priority, timing, and completion across the operating floor."
+  actionLabel="Create workflow"
+  actionIcon="add"
+/>
+
+<section class="ops-board">
+  @for (operation of data.operations(); track operation.id) {
+    <article class="operation-card">
+      <div class="card-top">
+        <span>{{ operation.id }}</span>
+        <app-status-pill [status]="operation.priority" />
+      </div>
+      <h2>{{ operation.workflow }}</h2>
+      <p>Owned by {{ operation.owner }}</p>
+      <mat-progress-bar mode="determinate" [value]="operation.completion" />
+      <div class="meta">
+        <span>{{ operation.completion }}% complete</span>
+        <strong>{{ operation.eta }}</strong>
+      </div>
+      <footer>
+        <app-status-pill [status]="operation.status" />
+        <button mat-icon-button type="button" aria-label="Open operation">
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+      </footer>
+    </article>
+  }
+</section>

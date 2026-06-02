@@ -1,0 +1,32 @@
+<app-page-header
+  title="Reports"
+  description="Executive-ready reporting packs for performance reviews, renewal planning, and operational exposure."
+  actionLabel="Schedule report"
+  actionIcon="event"
+/>
+
+<section class="report-grid">
+  @for (report of data.reports(); track report.title) {
+    <article class="report-card">
+      <div class="icon-shell">
+        <mat-icon>insert_chart</mat-icon>
+      </div>
+      <h2>{{ report.title }}</h2>
+      <p>{{ report.description }}</p>
+      <dl>
+        <div>
+          <dt>Cadence</dt>
+          <dd>{{ report.cadence }}</dd>
+        </div>
+        <div>
+          <dt>Owner</dt>
+          <dd>{{ report.owner }}</dd>
+        </div>
+      </dl>
+      <footer>
+        <span>{{ report.freshness }}</span>
+        <button mat-stroked-button type="button">Open</button>
+      </footer>
+    </article>
+  }
+</section>

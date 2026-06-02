@@ -1,0 +1,36 @@
+:host {
+  --pill-color: var(--of-accent);
+  background: color-mix(in srgb, var(--pill-color) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--pill-color) 30%, transparent);
+  border-radius: 999px;
+  color: var(--pill-color);
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  padding: 8px 10px;
+  text-transform: uppercase;
+}
+
+:host(.delayed),
+:host(.at-risk),
+:host(.low),
+:host(.critical) {
+  --pill-color: #ff6b7a;
+}
+
+:host(.review),
+:host(.high),
+:host(.medium),
+:host(.overstock),
+:host(.good) {
+  --pill-color: #ffcf6d;
+}
+
+:host(.complete),
+:host(.excellent),
+:host(.healthy),
+:host(.running) {
+  --pill-color: #35d7a1;
+}

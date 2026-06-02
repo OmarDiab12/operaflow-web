@@ -1,0 +1,45 @@
+.page-header {
+  align-items: flex-end;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  color: var(--of-accent);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+h1 {
+  color: var(--of-text);
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 1;
+  margin: 0;
+}
+
+.description {
+  color: var(--of-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 14px 0 0;
+  max-width: 680px;
+}
+
+button {
+  --mdc-filled-button-container-color: var(--of-accent);
+  --mdc-filled-button-label-text-color: #03110f;
+  border-radius: 999px;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 760px) {
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

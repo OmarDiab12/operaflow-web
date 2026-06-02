@@ -1,0 +1,60 @@
+<mat-sidenav-container class="shell">
+  <mat-sidenav
+    #drawer
+    class="sidebar"
+    [mode]="isMobile() ? 'over' : 'side'"
+    [opened]="drawerOpened()"
+  >
+    <div class="brand">
+      <div class="brand-mark">O</div>
+      <div>
+        <strong>Operaflow</strong>
+        <span>Command OS</span>
+      </div>
+    </div>
+
+    <nav aria-label="Primary navigation">
+      @for (item of navItems(); track item.route) {
+        <a
+          [routerLink]="item.route"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: item.route === '/dashboard' }"
+          (click)="isMobile() && drawer.close()"
+        >
+          <mat-icon>{{ item.icon }}</mat-icon>
+          <span>{{ item.label }}</span>
+        </a>
+      }
+    </nav>
+
+    <div class="sidebar-card">
+      <span>AI pulse</span>
+      <strong>4 automations ready</strong>
+      <p>Review suggested routing improvements for high-value accounts.</p>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="topbar">
+      <button mat-icon-button type="button" aria-label="Open navigation" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="search">
+        <mat-icon>search</mat-icon>
+        <span>Search workflows, customers, reports...</span>
+      </div>
+      <span class="spacer"></span>
+      <button mat-icon-button type="button" aria-label="Notifications">
+        <mat-icon>notifications_none</mat-icon>
+      </button>
+      <button mat-icon-button type="button" aria-label="Help">
+        <mat-icon>help_outline</mat-icon>
+      </button>
+      <div class="avatar" aria-label="Signed in as Olivia Morgan">OM</div>
+    </mat-toolbar>
+
+    <main class="content">
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

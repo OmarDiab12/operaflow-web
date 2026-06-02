@@ -1,0 +1,46 @@
+<app-page-header
+  title="Inventory"
+  description="Monitor stock availability, regional pressure, reorder thresholds, and fulfillment exposure before it hits the customer."
+  actionLabel="Sync stock"
+  actionIcon="sync"
+/>
+
+<section class="table-panel">
+  <div class="table-heading">
+    <div>
+      <p>Supply visibility</p>
+      <h2>{{ data.inventoryPressure() }} locations need attention</h2>
+    </div>
+    <button mat-stroked-button type="button">
+      <mat-icon>warehouse</mat-icon>
+      Warehouse map
+    </button>
+  </div>
+
+  <div class="responsive-table">
+    <table>
+      <thead>
+        <tr>
+          <th>SKU</th>
+          <th>Item</th>
+          <th>Location</th>
+          <th>Stock</th>
+          <th>Reorder point</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of data.inventory(); track item.sku) {
+          <tr>
+            <td><strong>{{ item.sku }}</strong></td>
+            <td>{{ item.item }}</td>
+            <td>{{ item.location }}</td>
+            <td>{{ item.stock }}</td>
+            <td>{{ item.reorderPoint }}</td>
+            <td><app-status-pill [status]="item.status" /></td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

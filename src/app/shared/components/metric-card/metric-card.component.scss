@@ -1,0 +1,41 @@
+:host {
+  display: block;
+}
+
+.metric-card {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--metric-accent) 19%, transparent), transparent 42%),
+    var(--of-surface);
+  border: 1px solid var(--of-border);
+  border-radius: 8px;
+  box-shadow: var(--of-shadow);
+  min-height: 142px;
+  padding: 22px;
+}
+
+.metric-card__top {
+  align-items: center;
+  color: var(--of-muted);
+  display: flex;
+  font-size: 0.86rem;
+  justify-content: space-between;
+}
+
+mat-icon {
+  color: var(--metric-accent);
+}
+
+strong {
+  color: var(--of-text);
+  display: block;
+  font-size: 2.1rem;
+  letter-spacing: 0;
+  margin-top: 20px;
+}
+
+p {
+  color: var(--metric-accent);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin: 8px 0 0;
+}

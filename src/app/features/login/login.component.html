@@ -1,0 +1,55 @@
+<main class="login-page">
+  <section class="login-hero">
+    <div class="brand">
+      <span>O</span>
+      <strong>Operaflow</strong>
+    </div>
+    <h1>Run every operation from one intelligent command center.</h1>
+    <p>
+      Monitor revenue, customers, inventory, and execution risk with a dashboard designed
+      for operators who need crisp decisions fast.
+    </p>
+    <div class="hero-panel">
+      <span>Live demo workspace</span>
+      <strong>97.8% SLA attainment</strong>
+      <div class="signal-bars">
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+    </div>
+  </section>
+
+  <section class="login-card" aria-label="Sign in">
+    <p class="eyebrow">Secure access</p>
+    <h2>Welcome back</h2>
+    <p class="muted">Use the prefilled demo credentials to enter the client-ready workspace.</p>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" [ngModel]="email()" (ngModelChange)="email.set($event)" />
+      <mat-icon matSuffix>alternate_email</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        [ngModel]="password()"
+        (ngModelChange)="password.set($event)"
+      />
+      <mat-icon matSuffix>lock</mat-icon>
+    </mat-form-field>
+
+    <div class="login-options">
+      <mat-checkbox checked>Remember workspace</mat-checkbox>
+      <a routerLink="/dashboard">Forgot password?</a>
+    </div>
+
+    <a mat-flat-button routerLink="/dashboard">Launch dashboard</a>
+
+    <p class="footnote">No backend integration yet. This is a fully local demo experience.</p>
+  </section>
+</main>

@@ -1,0 +1,8 @@
+<article class="metric-card">
+  <div class="metric-card__top">
+    <span>{{ metric().label }}</span>
+    <mat-icon>{{ metric().trend === 'down' ? 'south_east' : 'north_east' }}</mat-icon>
+  </div>
+  <strong>{{ metric().value }}</strong>
+  <p>{{ metric().change }} vs last month</p>
+</article>

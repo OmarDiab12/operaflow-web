@@ -1,0 +1,46 @@
+<app-page-header
+  title="Customers"
+  description="A revenue operations view of account health, ownership, annual recurring revenue, and upcoming renewals."
+  actionLabel="Add customer"
+  actionIcon="person_add"
+/>
+
+<section class="table-panel">
+  <div class="table-heading">
+    <div>
+      <p>Portfolio intelligence</p>
+      <h2>Account book</h2>
+    </div>
+    <button mat-stroked-button type="button">
+      <mat-icon>filter_list</mat-icon>
+      Filter
+    </button>
+  </div>
+
+  <div class="responsive-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Segment</th>
+          <th>Health</th>
+          <th>ARR</th>
+          <th>Owner</th>
+          <th>Renewal</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (customer of data.customers(); track customer.company) {
+          <tr>
+            <td><strong>{{ customer.company }}</strong></td>
+            <td>{{ customer.segment }}</td>
+            <td><app-status-pill [status]="customer.health" /></td>
+            <td>{{ customer.arr }}</td>
+            <td>{{ customer.owner }}</td>
+            <td>{{ customer.renewal }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

@@ -1,41 +1,68 @@
 .report-grid {
   display: grid;
-  gap: 16px;
+  gap: 18px;
   grid-template-columns: repeat(3, minmax(240px, 1fr));
 }
 
 .report-card {
-  background: var(--of-surface);
+  animation: of-rise-in 500ms ease both;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035)),
+    var(--of-surface);
   border: 1px solid var(--of-border);
-  border-radius: 8px;
-  box-shadow: var(--of-shadow);
+  border-radius: var(--of-radius);
+  box-shadow: var(--of-ring), var(--of-shadow);
   display: grid;
-  gap: 16px;
+  gap: 18px;
   min-width: 0;
+  overflow: hidden;
   padding: 24px;
+  position: relative;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.report-card::before {
+  background: linear-gradient(90deg, rgba(79, 240, 177, 0.55), rgba(120, 168, 255, 0.22), transparent);
+  content: '';
+  height: 1px;
+  left: 18px;
+  position: absolute;
+  right: 18px;
+  top: 0;
+}
+
+.report-card:hover {
+  border-color: var(--of-border-strong);
+  transform: translateY(-3px);
 }
 
 .icon-shell {
-  background: rgba(53, 215, 161, 0.12);
-  border: 1px solid rgba(53, 215, 161, 0.28);
-  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(79, 240, 177, 0.16), rgba(120, 168, 255, 0.1)),
+    rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(79, 240, 177, 0.24);
+  border-radius: 14px;
   color: var(--of-accent);
   display: grid;
-  height: 48px;
+  height: 50px;
   place-items: center;
-  width: 48px;
+  width: 50px;
 }
 
 h2 {
   color: var(--of-text);
-  font-size: 1.35rem;
-  line-height: 1.25;
+  font-size: 1.38rem;
+  font-weight: 720;
+  letter-spacing: -0.03em;
+  line-height: 1.22;
   margin: 0;
 }
 
 p {
   color: var(--of-muted);
-  line-height: 1.6;
+  line-height: 1.65;
   margin: 0;
 }
 
@@ -46,21 +73,30 @@ dl {
   margin: 0;
 }
 
+dl div {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 12px;
+}
+
 dt {
-  color: var(--of-muted);
-  font-size: 0.74rem;
+  color: var(--of-subtle);
+  font-size: 0.7rem;
+  font-weight: 780;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 dd {
   color: var(--of-text);
-  font-weight: 800;
-  margin: 4px 0 0;
+  font-weight: 760;
+  margin: 5px 0 0;
 }
 
 footer {
   align-items: center;
-  border-top: 1px solid var(--of-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.075);
   display: flex;
   gap: 14px;
   justify-content: space-between;

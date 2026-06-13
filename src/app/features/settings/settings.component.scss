@@ -1,40 +1,70 @@
 .settings-grid {
   display: grid;
-  gap: 16px;
+  gap: 18px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .settings-card {
-  background: var(--of-surface);
+  animation: of-rise-in 500ms ease both;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035)),
+    var(--of-surface);
   border: 1px solid var(--of-border);
-  border-radius: 8px;
-  box-shadow: var(--of-shadow);
+  border-radius: var(--of-radius);
+  box-shadow: var(--of-ring), var(--of-shadow);
   display: grid;
   gap: 18px;
   min-width: 0;
+  overflow: hidden;
   padding: 24px;
+  position: relative;
+}
+
+.settings-card::before {
+  background: linear-gradient(90deg, rgba(79, 240, 177, 0.55), rgba(120, 168, 255, 0.22), transparent);
+  content: '';
+  height: 1px;
+  left: 18px;
+  position: absolute;
+  right: 18px;
+  top: 0;
 }
 
 mat-icon {
+  background: rgba(79, 240, 177, 0.1);
+  border: 1px solid rgba(79, 240, 177, 0.18);
+  border-radius: 14px;
   color: var(--of-accent);
+  height: 42px;
+  padding: 9px;
+  width: 42px;
 }
 
 h2 {
   color: var(--of-text);
-  font-size: 1.35rem;
-  line-height: 1.25;
-  margin: 10px 0 8px;
+  font-size: 1.38rem;
+  font-weight: 720;
+  letter-spacing: -0.03em;
+  line-height: 1.22;
+  margin: 14px 0 8px;
 }
 
 p {
   color: var(--of-muted);
-  line-height: 1.6;
+  line-height: 1.65;
   margin: 0;
+}
+
+mat-slide-toggle {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 12px;
 }
 
 ul {
   display: grid;
-  gap: 14px;
+  gap: 10px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -42,15 +72,13 @@ ul {
 
 li {
   align-items: center;
-  border-bottom: 1px solid var(--of-border);
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
   display: flex;
   gap: 16px;
   justify-content: space-between;
-  padding-bottom: 14px;
-}
-
-li:last-child {
-  border-bottom: 0;
+  padding: 14px;
 }
 
 li span {
@@ -59,6 +87,7 @@ li span {
 
 li strong {
   color: var(--of-text);
+  font-weight: 760;
   text-align: right;
   white-space: nowrap;
 }

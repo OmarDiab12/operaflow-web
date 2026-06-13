@@ -1,29 +1,36 @@
 .shell {
   background:
-    linear-gradient(135deg, rgba(53, 215, 161, 0.08), transparent 34%),
-    linear-gradient(225deg, rgba(102, 178, 255, 0.1), transparent 30%), var(--of-bg);
+    radial-gradient(circle at 10% -8%, rgba(79, 240, 177, 0.11), transparent 30%),
+    radial-gradient(circle at 90% 0%, rgba(120, 168, 255, 0.12), transparent 30%),
+    var(--of-bg);
   color: var(--of-text);
   min-height: 100dvh;
 }
 
 .sidebar {
-  --mat-sidenav-container-width: 280px;
-  background: rgba(8, 13, 27, 0.96);
-  border-right: 1px solid var(--of-border);
+  --mat-sidenav-container-width: 292px;
+  background:
+    linear-gradient(180deg, rgba(13, 19, 32, 0.98), rgba(7, 10, 18, 0.98)),
+    var(--of-bg-elevated);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--of-text);
-  padding: 20px;
+  padding: 18px;
 }
 
 .brand {
   align-items: center;
   display: flex;
   gap: 12px;
-  margin-bottom: 34px;
+  margin-bottom: 30px;
+  padding: 6px 6px 10px;
 }
 
 .brand-mark {
-  background: linear-gradient(135deg, var(--of-accent), #65a7ff);
-  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(79, 240, 177, 0.96), rgba(120, 168, 255, 0.96)),
+    #0b101b;
+  border-radius: 12px;
+  box-shadow: 0 14px 38px rgba(79, 240, 177, 0.18);
   color: #041210;
   display: grid;
   font-size: 1.25rem;
@@ -39,30 +46,53 @@
   line-height: 1.15;
 }
 
+.brand strong {
+  font-size: 0.96rem;
+  letter-spacing: -0.01em;
+}
+
 .brand span {
   color: var(--of-muted);
-  font-size: 0.78rem;
-  margin-top: 2px;
+  font-size: 0.76rem;
+  margin-top: 3px;
 }
 
 nav {
   display: grid;
-  gap: 8px;
+  gap: 7px;
 }
 
 nav a {
   align-items: center;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: 12px;
   color: var(--of-muted);
   display: flex;
   gap: 12px;
-  padding: 12px 14px;
+  padding: 11px 12px;
+  position: relative;
   text-decoration: none;
   transition:
     background 180ms ease,
+    border-color 180ms ease,
     color 180ms ease,
-    border-color 180ms ease;
+    transform 180ms ease;
+}
+
+nav a::before {
+  background: linear-gradient(180deg, var(--of-accent), var(--of-accent-2));
+  border-radius: 999px;
+  content: '';
+  height: 22px;
+  left: -18px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0.45);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+  width: 3px;
 }
 
 nav a span {
@@ -73,9 +103,15 @@ nav a span {
 
 nav a:hover,
 nav a.active {
-  background: rgba(53, 215, 161, 0.12);
-  border-color: rgba(53, 215, 161, 0.28);
+  background: rgba(255, 255, 255, 0.064);
+  border-color: var(--of-border);
   color: var(--of-text);
+  transform: translateX(2px);
+}
+
+nav a.active::before {
+  opacity: 1;
+  transform: translateY(-50%) scaleY(1);
 }
 
 nav a.active mat-icon {
@@ -83,26 +119,42 @@ nav a.active mat-icon {
 }
 
 .sidebar-card {
-  background: linear-gradient(145deg, rgba(53, 215, 161, 0.16), rgba(101, 167, 255, 0.08));
+  background:
+    linear-gradient(145deg, rgba(79, 240, 177, 0.14), rgba(120, 168, 255, 0.08)),
+    rgba(255, 255, 255, 0.04);
   border: 1px solid var(--of-border);
-  border-radius: 8px;
+  border-radius: var(--of-radius);
   bottom: 20px;
+  box-shadow: var(--of-ring), 0 20px 50px rgba(0, 0, 0, 0.18);
   left: 20px;
+  overflow: hidden;
   padding: 18px;
   position: absolute;
   right: 20px;
 }
 
+.sidebar-card::after {
+  animation: of-sheen 4.8s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 60%;
+}
+
 .sidebar-card span {
   color: var(--of-accent);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .sidebar-card strong {
   display: block;
+  letter-spacing: -0.01em;
   margin-top: 8px;
 }
 
@@ -113,13 +165,13 @@ nav a.active mat-icon {
 }
 
 .topbar {
-  backdrop-filter: blur(18px);
-  background: rgba(8, 13, 27, 0.82);
-  border-bottom: 1px solid var(--of-border);
+  backdrop-filter: blur(22px);
+  background: rgba(5, 8, 15, 0.68);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
   color: var(--of-text);
   gap: 12px;
-  min-height: 72px;
-  padding: 0 24px;
+  min-height: 70px;
+  padding: 0 28px;
   position: sticky;
   top: 0;
   z-index: 3;
@@ -127,14 +179,24 @@ nav a.active mat-icon {
 
 .search {
   align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--of-border);
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.095);
   border-radius: 999px;
   color: var(--of-muted);
   display: flex;
-  flex: 0 1 520px;
+  flex: 0 1 560px;
   gap: 10px;
-  padding: 10px 16px;
+  padding: 9px 15px;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.search:hover {
+  background: rgba(255, 255, 255, 0.075);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 4px rgba(79, 240, 177, 0.04);
 }
 
 .search span {
@@ -154,7 +216,9 @@ nav a.active mat-icon {
 }
 
 .avatar {
-  background: linear-gradient(135deg, rgba(53, 215, 161, 0.28), rgba(102, 178, 255, 0.2));
+  background:
+    linear-gradient(135deg, rgba(79, 240, 177, 0.24), rgba(120, 168, 255, 0.18)),
+    rgba(255, 255, 255, 0.08);
   border: 1px solid var(--of-border);
   border-radius: 50%;
   color: var(--of-text);
@@ -168,13 +232,13 @@ nav a.active mat-icon {
 
 .profile {
   align-items: center;
-  background: var(--of-surface-soft);
-  border: 1px solid var(--of-border);
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.095);
   border-radius: 999px;
   display: flex;
   gap: 10px;
   margin-left: 4px;
-  max-width: 160px;
+  max-width: 170px;
   padding: 5px 12px 5px 5px;
 }
 
@@ -194,9 +258,10 @@ nav a.active mat-icon {
 }
 
 .content {
+  animation: of-rise-in 420ms ease both;
   margin: 0 auto;
-  max-width: 1440px;
-  padding: clamp(20px, 3vw, 36px);
+  max-width: 1480px;
+  padding: clamp(22px, 3vw, 42px);
 }
 
 @media (max-width: 760px) {

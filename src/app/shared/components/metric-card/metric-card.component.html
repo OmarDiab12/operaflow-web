@@ -4,5 +4,13 @@
     <mat-icon>{{ metric().trend === 'down' ? 'south_east' : 'north_east' }}</mat-icon>
   </div>
   <strong>{{ metric().value }}</strong>
-  <p>{{ metric().change }} from last month</p>
+  <div class="metric-card__bottom">
+    <p>{{ metric().change }} from last month</p>
+    <div class="sparkline" aria-hidden="true">
+      <i></i>
+      <i></i>
+      <i></i>
+      <i></i>
+    </div>
+  </div>
 </article>

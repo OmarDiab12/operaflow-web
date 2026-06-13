@@ -1,6 +1,6 @@
 <app-page-header
-  title="Today at a glance"
-  description="Sales, customer follow-ups, open work, and stock alerts in one clear place for a busy growing business."
+  title="Operating cockpit"
+  description="A real-time command view for revenue momentum, customer risk, active workflows, and supply pressure."
   actionLabel="Share view"
   actionIcon="ios_share"
 />
@@ -15,15 +15,44 @@
   <article class="panel hero-panel">
     <div class="panel-heading">
       <div>
-        <p>Work pace</p>
-        <h2>Jobs are moving 22% faster this week</h2>
+        <p>Operating velocity</p>
+        <h2>Workflow throughput is compounding across revenue and supply teams</h2>
       </div>
-      <button mat-stroked-button type="button">View trend</button>
+      <button mat-stroked-button type="button">Inspect trend</button>
     </div>
-    <div class="velocity-chart" aria-label="Velocity chart">
-      @for (bar of [42, 58, 49, 72, 64, 82, 94]; track $index) {
-        <span [style.height.%]="bar"></span>
-      }
+    <div class="chart-shell">
+      <div class="chart-summary">
+        <strong>+22.4%</strong>
+        <span>7 day operating pace</span>
+      </div>
+      <div class="velocity-chart" aria-label="Velocity chart">
+        @for (bar of [42, 58, 49, 72, 64, 82, 94]; track $index) {
+          <span [style.height.%]="bar"></span>
+        }
+      </div>
+      <div class="chart-axis">
+        <span>Mon</span>
+        <span>Tue</span>
+        <span>Wed</span>
+        <span>Thu</span>
+        <span>Fri</span>
+        <span>Sat</span>
+        <span>Sun</span>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span>Cycle time</span>
+        <strong>2.8d</strong>
+      </div>
+      <div>
+        <span>Automation lift</span>
+        <strong>$184K</strong>
+      </div>
+      <div>
+        <span>Risk cleared</span>
+        <strong>31</strong>
+      </div>
     </div>
   </article>
 
@@ -31,13 +60,13 @@
     <div class="panel-heading compact">
       <div>
         <p>Live activity</p>
-        <h2>Latest updates</h2>
+        <h2>Signal feed</h2>
       </div>
     </div>
     <div class="activity-list">
       @for (activity of data.activities(); track activity.title) {
         <div class="activity-item">
-          <mat-icon>bolt</mat-icon>
+          <mat-icon>auto_awesome</mat-icon>
           <div>
             <strong>{{ activity.title }}</strong>
             <p>{{ activity.detail }}</p>
@@ -52,8 +81,8 @@
   <article class="panel operations-panel">
     <div class="panel-heading compact">
       <div>
-        <p>Open work</p>
-        <h2>{{ data.activeOperations() }} jobs in progress</h2>
+        <p>Priority work</p>
+        <h2>{{ data.activeOperations() }} workflows need operator focus</h2>
       </div>
     </div>
     @for (operation of data.operations(); track operation.id) {

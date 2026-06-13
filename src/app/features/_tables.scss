@@ -1,9 +1,24 @@
 .table-panel {
-  background: var(--of-surface);
+  animation: of-rise-in 480ms ease both;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035)),
+    var(--of-surface);
   border: 1px solid var(--of-border);
-  border-radius: 8px;
-  box-shadow: var(--of-shadow);
-  padding: 22px;
+  border-radius: var(--of-radius);
+  box-shadow: var(--of-ring), var(--of-shadow);
+  overflow: hidden;
+  padding: 24px;
+  position: relative;
+}
+
+.table-panel::before {
+  background: linear-gradient(90deg, rgba(79, 240, 177, 0.55), rgba(120, 168, 255, 0.22), transparent);
+  content: '';
+  height: 1px;
+  left: 18px;
+  position: absolute;
+  right: 18px;
+  top: 0;
 }
 
 .table-heading {
@@ -11,7 +26,7 @@
   display: flex;
   gap: 18px;
   justify-content: space-between;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 
 .table-heading > div {
@@ -24,21 +39,25 @@
 
 .table-heading p {
   color: var(--of-accent);
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  margin: 0 0 8px;
+  font-size: 0.7rem;
+  font-weight: 820;
+  letter-spacing: 0.16em;
+  margin: 0 0 10px;
   text-transform: uppercase;
 }
 
 h2 {
   color: var(--of-text);
-  font-size: clamp(1.18rem, 2vw, 1.35rem);
-  line-height: 1.25;
+  font-size: clamp(1.24rem, 2vw, 1.5rem);
+  font-weight: 720;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
   margin: 0;
 }
 
 .responsive-table {
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 14px;
   overflow-x: auto;
 }
 
@@ -50,17 +69,18 @@ table {
 
 th,
 td {
-  border-bottom: 1px solid var(--of-border);
-  padding: 15px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+  padding: 16px 16px;
   text-align: left;
   vertical-align: middle;
 }
 
 th {
-  color: var(--of-muted);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--of-subtle);
+  font-size: 0.72rem;
+  font-weight: 820;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -71,7 +91,18 @@ td {
 
 td strong {
   color: var(--of-text);
+  font-weight: 720;
   white-space: nowrap;
+}
+
+tbody tr {
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+tbody tr:hover {
+  background: rgba(255, 255, 255, 0.038);
 }
 
 tr:last-child td {

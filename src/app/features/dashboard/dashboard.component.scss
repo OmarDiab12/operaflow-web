@@ -1,13 +1,13 @@
 .metric-grid {
   display: grid;
-  gap: 18px;
+  gap: 16px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .dashboard-grid {
   display: grid;
-  gap: 18px;
+  gap: 16px;
   grid-template-columns: 1.4fr 0.9fr;
 }
 
@@ -35,6 +35,10 @@
   justify-content: space-between;
 }
 
+.panel-heading button {
+  flex: 0 0 auto;
+}
+
 .panel-heading.compact {
   margin-bottom: 18px;
 }
@@ -50,7 +54,8 @@
 
 h2 {
   color: var(--of-text);
-  font-size: 1.35rem;
+  font-size: clamp(1.18rem, 2vw, 1.35rem);
+  line-height: 1.25;
   margin: 0;
 }
 
@@ -83,6 +88,10 @@ h2 {
   padding-bottom: 14px;
 }
 
+.activity-item > div {
+  min-width: 0;
+}
+
 .activity-item:last-child {
   border-bottom: 0;
   padding-bottom: 0;
@@ -111,14 +120,22 @@ h2 {
   align-items: center;
   display: grid;
   gap: 18px;
-  grid-template-columns: 1fr minmax(120px, 280px) auto;
+  grid-template-columns: minmax(220px, 1fr) minmax(140px, 280px) auto;
   padding: 14px 0;
+}
+
+.operation-row > div {
+  min-width: 0;
 }
 
 @media (max-width: 1120px) {
   .metric-grid,
   .dashboard-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .operation-row {
+    grid-template-columns: minmax(180px, 1fr) minmax(120px, 220px) auto;
   }
 }
 
@@ -128,5 +145,14 @@ h2 {
   .operation-row,
   .activity-item {
     grid-template-columns: 1fr;
+  }
+
+  .panel-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .velocity-chart {
+    height: 220px;
   }
 }

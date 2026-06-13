@@ -1,8 +1,7 @@
 .shell {
   background:
-    radial-gradient(circle at top left, rgba(53, 215, 161, 0.14), transparent 34%),
-    radial-gradient(circle at 82% 4%, rgba(101, 167, 255, 0.16), transparent 28%),
-    var(--of-bg);
+    linear-gradient(135deg, rgba(53, 215, 161, 0.08), transparent 34%),
+    linear-gradient(225deg, rgba(102, 178, 255, 0.1), transparent 30%), var(--of-bg);
   color: var(--of-text);
   min-height: 100dvh;
 }
@@ -37,6 +36,7 @@
 .brand strong,
 .brand span {
   display: block;
+  line-height: 1.15;
 }
 
 .brand span {
@@ -63,6 +63,12 @@ nav a {
     background 180ms ease,
     color 180ms ease,
     border-color 180ms ease;
+}
+
+nav a span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 nav a:hover,
@@ -107,7 +113,8 @@ nav a.active mat-icon {
 }
 
 .topbar {
-  background: rgba(8, 13, 27, 0.7);
+  backdrop-filter: blur(18px);
+  background: rgba(8, 13, 27, 0.82);
   border-bottom: 1px solid var(--of-border);
   color: var(--of-text);
   gap: 12px;
@@ -130,12 +137,24 @@ nav a.active mat-icon {
   padding: 10px 16px;
 }
 
+.search span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .spacer {
   flex: 1;
 }
 
+.topbar-actions {
+  align-items: center;
+  display: flex;
+  gap: 6px;
+}
+
 .avatar {
-  background: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(53, 215, 161, 0.28), rgba(102, 178, 255, 0.2));
   border: 1px solid var(--of-border);
   border-radius: 50%;
   color: var(--of-text);
@@ -147,10 +166,37 @@ nav a.active mat-icon {
   width: 40px;
 }
 
+.profile {
+  align-items: center;
+  background: var(--of-surface-soft);
+  border: 1px solid var(--of-border);
+  border-radius: 999px;
+  display: flex;
+  gap: 10px;
+  margin-left: 4px;
+  max-width: 160px;
+  padding: 5px 12px 5px 5px;
+}
+
+.profile strong,
+.profile span {
+  display: block;
+  line-height: 1.15;
+}
+
+.profile strong {
+  font-size: 0.85rem;
+}
+
+.profile span {
+  color: var(--of-muted);
+  font-size: 0.72rem;
+}
+
 .content {
   margin: 0 auto;
   max-width: 1440px;
-  padding: 32px;
+  padding: clamp(20px, 3vw, 36px);
 }
 
 @media (max-width: 760px) {
@@ -159,6 +205,18 @@ nav a.active mat-icon {
   }
 
   .search {
+    display: none;
+  }
+
+  .topbar-actions {
+    gap: 2px;
+  }
+
+  .profile {
+    padding-right: 5px;
+  }
+
+  .profile > div:not(.avatar) {
     display: none;
   }
 

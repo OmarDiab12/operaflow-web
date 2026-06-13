@@ -1,7 +1,7 @@
 <app-page-header
-  title="Executive dashboard"
-  description="A polished operating view across revenue flow, customer health, workflow execution, and inventory pressure."
-  actionLabel="Share demo"
+  title="Today at a glance"
+  description="Sales, customer follow-ups, open work, and stock alerts in one clear place for a busy growing business."
+  actionLabel="Share view"
   actionIcon="ios_share"
 />
 
@@ -15,10 +15,10 @@
   <article class="panel hero-panel">
     <div class="panel-heading">
       <div>
-        <p>Operating velocity</p>
-        <h2>Pipeline is moving 22% faster this week</h2>
+        <p>Work pace</p>
+        <h2>Jobs are moving 22% faster this week</h2>
       </div>
-      <button mat-stroked-button type="button">View forecast</button>
+      <button mat-stroked-button type="button">View trend</button>
     </div>
     <div class="velocity-chart" aria-label="Velocity chart">
       @for (bar of [42, 58, 49, 72, 64, 82, 94]; track $index) {
@@ -31,7 +31,7 @@
     <div class="panel-heading compact">
       <div>
         <p>Live activity</p>
-        <h2>Command feed</h2>
+        <h2>Latest updates</h2>
       </div>
     </div>
     <div class="activity-list">
@@ -52,15 +52,15 @@
   <article class="panel operations-panel">
     <div class="panel-heading compact">
       <div>
-        <p>Critical workflows</p>
-        <h2>{{ data.activeOperations() }} active operations</h2>
+        <p>Open work</p>
+        <h2>{{ data.activeOperations() }} jobs in progress</h2>
       </div>
     </div>
     @for (operation of data.operations(); track operation.id) {
       <div class="operation-row">
         <div>
           <strong>{{ operation.workflow }}</strong>
-          <span>{{ operation.id }} · {{ operation.owner }}</span>
+          <span>{{ operation.id }} - {{ operation.owner }}</span>
         </div>
         <mat-progress-bar mode="determinate" [value]="operation.completion" />
         <app-status-pill [status]="operation.status" />

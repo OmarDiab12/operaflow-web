@@ -1,6 +1,6 @@
 <app-page-header
   title="Customers"
-  description="A revenue operations view of account health, ownership, annual recurring revenue, and upcoming renewals."
+  description="Know which customers are happy, who needs attention, and which renewals or repeat orders are coming up."
   actionLabel="Add customer"
   actionIcon="person_add"
 />
@@ -8,8 +8,8 @@
 <section class="table-panel">
   <div class="table-heading">
     <div>
-      <p>Portfolio intelligence</p>
-      <h2>Account book</h2>
+      <p>Customer list</p>
+      <h2>Accounts to keep close</h2>
     </div>
     <button mat-stroked-button type="button">
       <mat-icon>filter_list</mat-icon>
@@ -22,9 +22,9 @@
       <thead>
         <tr>
           <th>Company</th>
-          <th>Segment</th>
+          <th>Type</th>
           <th>Health</th>
-          <th>ARR</th>
+          <th>Monthly value</th>
           <th>Owner</th>
           <th>Renewal</th>
         </tr>
@@ -32,7 +32,9 @@
       <tbody>
         @for (customer of data.customers(); track customer.company) {
           <tr>
-            <td><strong>{{ customer.company }}</strong></td>
+            <td>
+              <strong>{{ customer.company }}</strong>
+            </td>
             <td>{{ customer.segment }}</td>
             <td><app-status-pill [status]="customer.health" /></td>
             <td>{{ customer.arr }}</td>

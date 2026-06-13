@@ -1,6 +1,6 @@
 <app-page-header
   title="Settings"
-  description="Configure workspace preferences, automation posture, and notification policies for the demo tenant."
+  description="Choose how Operaflow helps your team, sends alerts, and protects the workspace."
   actionLabel="Save changes"
   actionIcon="save"
 />
@@ -9,31 +9,34 @@
   <article class="settings-card">
     <div>
       <mat-icon>auto_awesome</mat-icon>
-      <h2>Automation controls</h2>
-      <p>Govern how Operaflow recommends and executes operating actions.</p>
+      <h2>Smart help</h2>
+      <p>Choose when Operaflow suggests next steps for customers, stock, and open jobs.</p>
     </div>
-    <mat-slide-toggle [checked]="automationsEnabled()" (change)="automationsEnabled.set($event.checked)">
-      Workflow suggestions
+    <mat-slide-toggle
+      [checked]="automationsEnabled()"
+      (change)="automationsEnabled.set($event.checked)"
+    >
+      Suggested next steps
     </mat-slide-toggle>
     <mat-slide-toggle [checked]="executiveAlerts()" (change)="executiveAlerts.set($event.checked)">
-      Executive alerts
+      Owner alerts
     </mat-slide-toggle>
     <mat-slide-toggle [checked]="sandboxMode()" (change)="sandboxMode.set($event.checked)">
-      Sandbox approvals
+      Ask before changes
     </mat-slide-toggle>
   </article>
 
   <article class="settings-card">
     <div>
       <mat-icon>shield</mat-icon>
-      <h2>Security profile</h2>
-      <p>Demo tenant security is configured for client walkthroughs and internal testing.</p>
+      <h2>Workspace safety</h2>
+      <p>Keep account access, business data, and activity history easy to understand.</p>
     </div>
     <ul>
-      <li><span>SSO status</span><strong>Ready</strong></li>
-      <li><span>Data residency</span><strong>EU + US</strong></li>
-      <li><span>Audit logging</span><strong>Enabled</strong></li>
-      <li><span>Backend integration</span><strong>Not connected</strong></li>
+      <li><span>Team sign-in</span><strong>Ready</strong></li>
+      <li><span>Data storage</span><strong>EU + US</strong></li>
+      <li><span>Activity history</span><strong>On</strong></li>
+      <li><span>Accounting app</span><strong>Not connected</strong></li>
     </ul>
   </article>
 </section>

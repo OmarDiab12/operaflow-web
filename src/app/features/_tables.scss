@@ -14,6 +14,14 @@
   margin-bottom: 18px;
 }
 
+.table-heading > div {
+  min-width: 0;
+}
+
+.table-heading button {
+  flex: 0 0 auto;
+}
+
 .table-heading p {
   color: var(--of-accent);
   font-size: 0.75rem;
@@ -25,7 +33,8 @@
 
 h2 {
   color: var(--of-text);
-  font-size: 1.35rem;
+  font-size: clamp(1.18rem, 2vw, 1.35rem);
+  line-height: 1.25;
   margin: 0;
 }
 
@@ -42,8 +51,9 @@ table {
 th,
 td {
   border-bottom: 1px solid var(--of-border);
-  padding: 16px 14px;
+  padding: 15px 14px;
   text-align: left;
+  vertical-align: middle;
 }
 
 th {
@@ -56,10 +66,12 @@ th {
 
 td {
   color: var(--of-muted);
+  line-height: 1.45;
 }
 
 td strong {
   color: var(--of-text);
+  white-space: nowrap;
 }
 
 tr:last-child td {

@@ -14,14 +14,19 @@ html {
 }
 
 :root {
-  --of-bg: #050915;
-  --of-surface: rgba(12, 19, 39, 0.78);
-  --of-surface-strong: #111a32;
-  --of-border: rgba(255, 255, 255, 0.1);
+  --of-bg: #060912;
+  --of-surface: rgba(13, 20, 36, 0.86);
+  --of-surface-strong: #121b2e;
+  --of-surface-soft: rgba(255, 255, 255, 0.045);
+  --of-border: rgba(255, 255, 255, 0.12);
   --of-text: #f6f8ff;
-  --of-muted: #95a0ba;
+  --of-muted: #a4aec4;
+  --of-subtle: #768199;
   --of-accent: #35d7a1;
-  --of-shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+  --of-accent-2: #66b2ff;
+  --of-warning: #ffcf6d;
+  --of-danger: #ff7483;
+  --of-shadow: 0 20px 56px rgba(0, 0, 0, 0.32);
   color-scheme: dark;
 }
 
@@ -46,6 +51,8 @@ body {
     'Segoe UI',
     sans-serif;
   margin: 0;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -65,8 +72,33 @@ a {
   border-radius: 999px;
 }
 
+.mat-mdc-button,
+.mat-mdc-outlined-button,
+.mat-mdc-unelevated-button,
+.mat-mdc-raised-button {
+  min-height: 40px;
+}
+
+.mat-mdc-button .mdc-button__label,
+.mat-mdc-outlined-button .mdc-button__label,
+.mat-mdc-unelevated-button .mdc-button__label,
+.mat-mdc-raised-button .mdc-button__label {
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+  line-height: 1.2;
+}
+
+.mat-mdc-button mat-icon,
+.mat-mdc-outlined-button mat-icon,
+.mat-mdc-unelevated-button mat-icon,
+.mat-mdc-raised-button mat-icon {
+  margin: 0;
+}
+
 .mat-mdc-icon-button {
   --mdc-icon-button-icon-color: var(--of-text);
+  flex: 0 0 auto;
 }
 
 .mat-mdc-form-field {

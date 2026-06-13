@@ -1,7 +1,7 @@
 .ops-board {
   display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
 }
 
 .operation-card {
@@ -11,6 +11,7 @@
   box-shadow: var(--of-shadow);
   display: grid;
   gap: 16px;
+  min-width: 0;
   padding: 22px;
 }
 
@@ -19,6 +20,7 @@
 footer {
   align-items: center;
   display: flex;
+  gap: 12px;
   justify-content: space-between;
 }
 
@@ -31,6 +33,7 @@ p {
 h2 {
   color: var(--of-text);
   font-size: 1.25rem;
+  line-height: 1.25;
   margin: 0;
 }
 
@@ -40,6 +43,8 @@ p {
 
 .meta strong {
   color: var(--of-text);
+  text-align: right;
+  white-space: nowrap;
 }
 
 footer {
@@ -49,7 +54,7 @@ footer {
 
 @media (max-width: 1180px) {
   .ops-board {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
   }
 }
 

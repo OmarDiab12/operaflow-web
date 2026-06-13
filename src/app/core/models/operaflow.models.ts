@@ -19,7 +19,7 @@ export interface Operation {
   workflow: string;
   owner: string;
   status: 'Running' | 'Review' | 'Delayed' | 'Complete';
-  priority: 'Critical' | 'High' | 'Medium' | 'Low';
+  priority: 'Urgent' | 'High' | 'Medium' | 'Low';
   completion: number;
   eta: string;
 }

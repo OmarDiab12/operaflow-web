@@ -1,7 +1,7 @@
 <app-page-header
-  title="Operations"
-  description="Track mission-critical workflows, owners, priority, timing, and completion across the operating floor."
-  actionLabel="Create workflow"
+  title="Work in progress"
+  description="See the jobs your team is working on, who owns each one, what is urgent, and what is due next."
+  actionLabel="Add job"
   actionIcon="add"
 />
 
@@ -13,10 +13,10 @@
         <app-status-pill [status]="operation.priority" />
       </div>
       <h2>{{ operation.workflow }}</h2>
-      <p>Owned by {{ operation.owner }}</p>
+      <p>{{ operation.owner }} is handling this</p>
       <mat-progress-bar mode="determinate" [value]="operation.completion" />
       <div class="meta">
-        <span>{{ operation.completion }}% complete</span>
+        <span>{{ operation.completion }}% done</span>
         <strong>{{ operation.eta }}</strong>
       </div>
       <footer>

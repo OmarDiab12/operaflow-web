@@ -13,34 +13,34 @@ import {
 @Injectable({ providedIn: 'root' })
 export class OperaflowDataService {
   readonly navItems = signal<NavItem[]>([
-    { label: 'Dashboard', icon: 'dashboard', route: '/dashboard' },
-    { label: 'Operations', icon: 'schema', route: '/operations' },
+    { label: 'Home', icon: 'space_dashboard', route: '/dashboard' },
+    { label: 'Work', icon: 'task_alt', route: '/operations' },
     { label: 'Customers', icon: 'groups', route: '/customers' },
-    { label: 'Inventory', icon: 'inventory_2', route: '/inventory' },
+    { label: 'Stock', icon: 'inventory_2', route: '/inventory' },
     { label: 'Reports', icon: 'monitoring', route: '/reports' },
     { label: 'Settings', icon: 'tune', route: '/settings' },
   ]);
 
   readonly metrics = signal<MetricCard[]>([
-    { label: 'Revenue Flow', value: '$2.48M', change: '+18.4%', trend: 'up', accent: '#35d7a1' },
-    { label: 'Active Workflows', value: '148', change: '+12', trend: 'up', accent: '#65a7ff' },
-    { label: 'SLA Attainment', value: '97.8%', change: '+2.1%', trend: 'up', accent: '#b895ff' },
-    { label: 'Open Exceptions', value: '23', change: '-7', trend: 'down', accent: '#ffcf6d' },
+    { label: 'Monthly Sales', value: '$248K', change: '+18.4%', trend: 'up', accent: '#35d7a1' },
+    { label: 'Open Jobs', value: '148', change: '+12', trend: 'up', accent: '#65a7ff' },
+    { label: 'On-time Orders', value: '97.8%', change: '+2.1%', trend: 'up', accent: '#b895ff' },
+    { label: 'Needs Attention', value: '23', change: '-7', trend: 'down', accent: '#ffcf6d' },
   ]);
 
   readonly operations = signal<Operation[]>([
     {
       id: 'OP-1042',
-      workflow: 'Enterprise onboarding',
+      workflow: 'New client setup',
       owner: 'Amina Hassan',
       status: 'Running',
-      priority: 'Critical',
+      priority: 'Urgent',
       completion: 84,
       eta: 'Today 16:30',
     },
     {
       id: 'OP-1039',
-      workflow: 'Supply reconciliation',
+      workflow: 'Stock count review',
       owner: 'Nora Patel',
       status: 'Review',
       priority: 'High',
@@ -49,7 +49,7 @@ export class OperaflowDataService {
     },
     {
       id: 'OP-1037',
-      workflow: 'Contract approvals',
+      workflow: 'Quote approvals',
       owner: 'Liam Brooks',
       status: 'Delayed',
       priority: 'Medium',
@@ -58,7 +58,7 @@ export class OperaflowDataService {
     },
     {
       id: 'OP-1031',
-      workflow: 'Renewal automation',
+      workflow: 'Repeat order follow-up',
       owner: 'Maya Chen',
       status: 'Complete',
       priority: 'Low',
@@ -69,34 +69,34 @@ export class OperaflowDataService {
 
   readonly customers = signal<Customer[]>([
     {
-      company: 'Northstar Capital',
-      segment: 'Enterprise',
+      company: 'Northstar Cafe Group',
+      segment: 'Retail',
       health: 'Excellent',
-      arr: '$420K',
+      arr: '$42K/mo',
       owner: 'Maya Chen',
       renewal: 'Aug 18',
     },
     {
-      company: 'HelioGrid Energy',
-      segment: 'Mid-market',
+      company: 'HelioGrid Installers',
+      segment: 'Services',
       health: 'Good',
-      arr: '$185K',
+      arr: '$18K/mo',
       owner: 'Amina Hassan',
       renewal: 'Sep 02',
     },
     {
-      company: 'Atlas Medical',
-      segment: 'Enterprise',
+      company: 'Atlas Dental',
+      segment: 'Healthcare',
       health: 'At Risk',
-      arr: '$310K',
+      arr: '$31K/mo',
       owner: 'Liam Brooks',
       renewal: 'Jul 11',
     },
     {
       company: 'UrbanNest Retail',
-      segment: 'Scale-up',
+      segment: 'Retail',
       health: 'Excellent',
-      arr: '$96K',
+      arr: '$9.6K/mo',
       owner: 'Nora Patel',
       renewal: 'Oct 24',
     },
@@ -139,44 +139,44 @@ export class OperaflowDataService {
 
   readonly reports = signal<ReportItem[]>([
     {
-      title: 'Executive operating review',
-      description: 'Cross-functional performance, risk, and capacity signals.',
+      title: 'Weekly business snapshot',
+      description: 'Sales, work in progress, and customer follow-ups in one view.',
       cadence: 'Weekly',
-      owner: 'Strategy Ops',
+      owner: 'Owner',
       freshness: 'Updated 8 min ago',
     },
     {
-      title: 'Customer health forecast',
-      description: 'Renewal likelihood and expansion pipeline movement.',
+      title: 'Customer check-ins',
+      description: 'Accounts that need a call, renewal note, or quick save.',
       cadence: 'Daily',
-      owner: 'Revenue Ops',
+      owner: 'Sales',
       freshness: 'Updated 24 min ago',
     },
     {
-      title: 'Inventory exposure',
-      description: 'Regional stock pressure, exceptions, and replenishment needs.',
+      title: 'Stock watchlist',
+      description: 'Low-stock items, overstock, and upcoming reorder needs.',
       cadence: 'Hourly',
-      owner: 'Supply Ops',
+      owner: 'Inventory',
       freshness: 'Updated 3 min ago',
     },
   ]);
 
   readonly activities = signal<ActivityItem[]>([
     {
-      title: 'Priority workflow routed',
-      detail: 'Enterprise onboarding escalated to legal review.',
+      title: 'Setup task moved forward',
+      detail: 'New client setup is ready for final quote approval.',
       timestamp: '11 min ago',
       status: 'Running',
     },
     {
-      title: 'Forecast sync completed',
-      detail: 'Revenue and inventory forecasts refreshed for Q3 planning.',
+      title: 'Sales and stock refreshed',
+      detail: "This month's sales and inventory numbers are up to date.",
       timestamp: '24 min ago',
       status: 'Complete',
     },
     {
-      title: 'Customer risk detected',
-      detail: 'Atlas Medical engagement dropped below the success threshold.',
+      title: 'Customer needs a follow-up',
+      detail: 'Atlas Dental has not replied to the latest renewal note.',
       timestamp: '42 min ago',
       status: 'Review',
     },
